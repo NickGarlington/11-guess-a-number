@@ -23,8 +23,9 @@ import readlineSync from 'readline-sync';
  */
 
 export function generateNumber() {
-  // YOUR CODE HERE
-  // BE SURE IT'S AN INTEGER OR YOU WILL BE SAD
+
+  return Math.floor(Math.random() * (100)) + 1;
+
 }
 
 /**
@@ -41,7 +42,8 @@ export function generateNumber() {
  */
 
 export function getUserGuess() {
-	// YOUR CODE HERE
+  var guess = readlineSync.question("What's your guess?");
+  return guess;
 }
 
 /**
@@ -55,7 +57,17 @@ export function getUserGuess() {
  */
 
 export function isRightNumber(correctNumber, userGuess) {
-  // YOUR CODE HERE
+  if (correctNumber === userGuess) {
+    return true;
+  }
+  else if (userGuess > correctNumber) {
+    console.log("your'e number is too high");
+    return false;
+  }
+  else {
+    console.log("your'e number is too low");
+    return false;
+  }
 }
 
 /**
