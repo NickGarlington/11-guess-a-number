@@ -57,10 +57,10 @@ export function getUserGuess() {
  */
 
 export function isRightNumber(correctNumber, userGuess) {
-  if (correctNumber === userGuess) {
+  if (correctNumber === Number(userGuess)) {
     return true;
   }
-  else if (userGuess > correctNumber) {
+  else if (Number(userGuess) > correctNumber) {
     console.log("your'e number is too high");
     return false;
   }
@@ -98,11 +98,19 @@ export function isRightNumber(correctNumber, userGuess) {
  */
 
 function runGame() {
-	// DISPLAY WELCOME BANNER
+	console.log("Guess a Number Between 1-100");
+  var correctNumber = generateNumber();
+  
+  var gameOver = false;
+  while(!gameOver) {
+    var newGuess = getUserGuess();
+    var rightGuess = isRightNumber(correctNumber, newGuess);
+    if (rightGuess) {
+      console.log("Congrats! You guessed a Number");
+      gameOver = true;
+    }
 
-	// STORE INITIAL GAME STATE
-
-	// WHILE LOOP FOR WHEN GAME IS NOT WON
+  }
 }
 
 /**
